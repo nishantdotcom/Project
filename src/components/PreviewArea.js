@@ -1,7 +1,15 @@
 import React from "react";
 import CatSprite from "./CatSprite";
 
-export default function PreviewArea({ movement, coOrdinate, greetWithTime }) {
+export default function PreviewArea({
+  movement,
+  coOrdinate,
+  greetWithTime,
+  size,
+  visible,
+  setCoOrdinate,
+  setMovement,
+}) {
   // console.log(movement);
   // console.log(greetWithTime);
   return (
@@ -10,6 +18,10 @@ export default function PreviewArea({ movement, coOrdinate, greetWithTime }) {
         movement={movement}
         coOrdinate={coOrdinate}
         greetWithTime={greetWithTime}
+        size={size}
+        visible={visible}
+        setCoOrdinate={setCoOrdinate}
+        setMovement={setMovement}
       />
     </div>
   );

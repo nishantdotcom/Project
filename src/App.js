@@ -14,10 +14,16 @@ export default function App() {
     duration: 0,
     valid: false,
   });
+
   const [coOrdinate, setCoOrdinate] = useState({
     x: 0,
     y: 0,
   });
+
+  const [visible, setisvisible] = useState(true);
+
+  const [size, setsize] = useState(10);
+  const [percentage, setpercentage] = useState(20);
 
   const [greet, setGreet] = useState("");
 
@@ -36,6 +42,7 @@ export default function App() {
     //console.log(widgetType, "dddd");
     setWidgets([...widgets, widgetType]);
   };
+
   const handelDragOver = (e) => {
     //  console.log(e);
     e.preventDefault();
@@ -53,6 +60,12 @@ export default function App() {
             setGreet={setGreet}
             greetWithTime={greetWithTime}
             setGreetWithTime={setGreetWithTime}
+            size={size}
+            setsize={setsize}
+            visible={visible}
+            setisvisible={setisvisible}
+            percentage={percentage}
+            setpercentage={setpercentage}
           />
           <MidArea
             handleOnDrop={handleOnDrop}
@@ -66,6 +79,12 @@ export default function App() {
             setGreet={setGreet}
             greetWithTime={greetWithTime}
             setGreetWithTime={setGreetWithTime}
+            size={size}
+            setsize={setsize}
+            visible={visible}
+            setisvisible={setisvisible}
+            percentage={percentage}
+            setpercentage={setpercentage}
           />
         </div>
         <div className="w-1/2  flex flex-row border-t border-l border-gray-200 rounded-tl-xl ml-2 bg-white">
@@ -73,6 +92,10 @@ export default function App() {
             movement={movement}
             coOrdinate={coOrdinate}
             greetWithTime={greetWithTime}
+            size={size}
+            visible={visible}
+            setCoOrdinate={setCoOrdinate}
+            setMovement={setMovement}
           />
         </div>
       </div>

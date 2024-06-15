@@ -8,6 +8,10 @@ export default function Sidebar({
   setGreet,
   greetWithTime,
   setGreetWithTime,
+  size,
+  setsize,
+  percentage,
+  setpercentage,
 }) {
   //console.log(handleOnDrag, "handle on drag");
 
@@ -29,15 +33,35 @@ export default function Sidebar({
     });
   };
 
+  const handlesetsize = (e) => {
+    setsize(e.target.value);
+  };
+
+  const handlesetpercentage = (e) => {
+    setpercentage(e.target.value);
+  };
+
   return (
     <div className="w-60 flex-none h-full overflow-y-auto flex flex-col items-start p-2 border-r border-gray-200">
       <div className="font-bold"> {"Events"} </div>
-      <div className="flex flex-row flex-wrap bg-yellow-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        className="flex flex-row flex-wrap bg-yellow-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+        draggable
+        onDragStart={(e) => {
+          handleOnDrag(e, "When clicked");
+        }}
+      >
         {"When "}
         <Icon name="flag" size={15} className="text-green-600 mx-2" />
         {"clicked"}
       </div>
-      <div className="flex flex-row flex-wrap bg-yellow-500 text-white px-2 py-1 my-2 text-sm cursor-pointer">
+      <div
+        className="flex flex-row flex-wrap bg-yellow-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+        draggable
+        onDragStart={(e) => {
+          handleOnDrag(e, "When sprite clicked");
+        }}
+      >
         {"When this sprite clicked"}
       </div>
       <div className="font-bold"> {"Motion"} </div>
@@ -110,7 +134,7 @@ export default function Sidebar({
       </div>
       <div className="font-bold"> {"Looks"} </div>
       <div
-        className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
         draggable
         onDragStart={(e) => {
           handleOnDrag(e, `Greet`);
@@ -119,7 +143,7 @@ export default function Sidebar({
         Greet
       </div>
       <div
-        className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
         draggable
         onDragStart={(e) => {
           handleOnDrag(e, `Greet text`);
@@ -135,7 +159,7 @@ export default function Sidebar({
         />
       </div>
       <div
-        className="flex flex-row flex-wrap bg-blue-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
         draggable
         onDragStart={(e) => {
           handleOnDrag(e, `Greet text time`);
@@ -156,8 +180,59 @@ export default function Sidebar({
           placeholder="time"
           value={greetWithTime.time}
           onChange={handleGreetTimeChange}
-        />{" "}
+        />
         sec
+      </div>
+
+      <div
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+        draggable
+        onDragStart={(e) => {
+          handleOnDrag(e, `Hide`);
+        }}
+      >
+        Hide
+      </div>
+      <div
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+        draggable
+        onDragStart={(e) => {
+          handleOnDrag(e, `Show`);
+        }}
+      >
+        Show
+      </div>
+      <div
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+        draggable
+        onDragStart={(e) => {
+          handleOnDrag(e, `Change size by`);
+        }}
+      >
+        Change size by
+        <input
+          className="text-black h-6 w-16 rounded-lg p-2 ml-2"
+          name="size"
+          placeholder="size"
+          value={size}
+          onChange={handlesetsize}
+        />
+      </div>
+      <div
+        className="flex flex-row flex-wrap bg-purple-500 text-white px-2 py-1 my-2 text-sm cursor-pointer"
+        draggable
+        onDragStart={(e) => {
+          handleOnDrag(e, `Change size  by percent`);
+        }}
+      >
+        Change size by
+        <input
+          className="text-black h-6 w-16 rounded-lg p-2 ml-2"
+          placeholder="%"
+          value={percentage}
+          onChange={handlesetpercentage}
+        />
+        %
       </div>
     </div>
   );
