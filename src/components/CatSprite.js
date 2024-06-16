@@ -11,7 +11,7 @@ export default function CatSprite({
 }) {
   console.log(movement);
   const [valid, setiSvalid] = useState(false);
-  const [position, setPosition] = useState({ x: 100, y: 100 });
+  const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   console.log(greetWithTime.time);
